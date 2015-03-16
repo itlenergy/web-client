@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Create user</h3>
+    </div>
+    <div class="panel-body">
+      <div class="form-horizontal">
+        
+        <!-- username -->
+        <div class="form-group">
+          <label for="usernameInput" class="col-sm-4 control-label">Username</label>
+          
+          <div class="col-sm-8 {{user.usernameMsg ? 'has-error' : ''}}">
+            <input type="text" class="form-control" id="usernameInput" placeholder="username"
+              value="{{user.username}}">
+            <span class="validation-message">{{user.usernameMsg}}</span>
+          </div>
+        </div>
+        
+        <!-- role -->
+        <div class="form-group">
+          <label for="roleInput" class="col-sm-4 control-label">Role</label>
+          
+          <div class="col-sm-8 {{user.roleMsg ? 'has-error' : ''}}">
+            <input type="text" class="form-control" id="roleInput" placeholder="role"
+              value="{{user.role}}">
+            <span class="validation-message">{{user.roleMsg}}</span>
+          </div>
+        </div>
+        
+        <!-- relatedId -->
+        <div class="form-group">
+          <label for="relatedIdInput" class="col-sm-4 control-label">Related ID</label>
+          
+          <div class="col-sm-8 {{user.relatedIdMsg ? 'has-error' : ''}}">
+            <input type="text" class="form-control" id="relatedIdInput" placeholder="related ID"
+              value="{{user.relatedId}}">
+            <span class="validation-message">{{user.relatedIdMsg}}</span>
+          </div>
+        </div>
+        
+        <!-- password -->
+        <div class="form-group">
+          <label for="passwordInput" class="col-sm-4 control-label">Password</label>
+          
+          <div class="col-sm-8 {{user.passwordMsg ? 'has-error' : ''}}">
+            <input type="password" class="form-control" id="passwordInput" placeholder="password"
+              value="{{user.password}}">
+            <span class="validation-message">{{user.passwordMsg}}</span>
+          </div>
+        </div>
+        
+        <!-- confirmPassword -->
+        <div class="form-group">
+          <label for="confirmPasswordInput" class="col-sm-4 control-label">Confirm password</label>
+          
+          <div class="col-sm-8 {{user.confirmPasswordMsg ? 'has-error' : ''}}">
+            <input type="password" class="form-control" id="roleInput" placeholder="type it again"
+              value="{{user.confirmPassword}}">
+            <span class="validation-message">{{user.confirmPasswordMsg}}</span>
+          </div>
+        </div>
+        
+        <div class="button-bar">
+          <button class="btn btn-primary" on-click="createUser.save">Save</button>
+          <a class="btn" href="#/users">Back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Sites</h3>
+    </div>
+    <div class="panel-body">
+      <p>Manage deployment sites.</p>
+      
+      <div>
+        <a class="btn btn-primary" href="#/users/create">Add site</a>
+      </div>
+      
+      {{#sites.length}}
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Altitude</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#sites}}
+          <tr on-click="editSite.show:{{.siteId}}">
+            <td>{{.siteName}}</td>
+            <td>{{.altitude}}</td>
+            <td>{{.latitude}}</td>
+            <td>{{.longitude}}</td>
+          </tr>
+          {{/sites}}
+        </tbody>
+      </table>
+      {{else}}
+      <p>There are no sites to display.</p>
+      {{/sites.length}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+
+<div class="modal fade" id="loginDialog" tabindex="-1" role="dialog" aria-labelledby="loginDialogLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="loginDialogLabel">Login</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="username" value="{{loginDialog.username}}">
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="password" placeholder="password" value="{{loginDialog.password}}">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" on-click="loginDialog.submit">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{>content}}

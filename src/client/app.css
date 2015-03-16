@@ -1,0 +1,16 @@
+body {
+  margin-top: 100px;
+  background: #eee;
+}
+
+.table-hover tbody tr {
+  cursor: pointer;
+}
+
+.panel-body {
+  max-width: 500px;
+}
+
+.button-bar {
+  margin-top: 40px;
+}

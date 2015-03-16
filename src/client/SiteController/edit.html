@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Sites</h3>
+    </div>
+    <div class="panel-body">
+      <div class="form-horizontal">
+        
+        <!-- siteName -->
+        <div class="form-group">
+          <label for="siteNameInput" class="col-sm-4 control-label">Site name</label>
+          
+          <div class="col-sm-8 {{site.siteNameMsg ? 'has-error' : ''}}">
+            <input type="text" class="form-control" id="siteNameInput" placeholder="site name"
+              value="{{site.siteName}}">
+            <span class="validation-message">{{site.siteNameMsg}}</span>
+          </div>
+        </div>
+        
+        <!-- altitude -->
+        <div class="form-group">
+          <label for="altitudeInput" class="col-sm-4 control-label">Altitude</label>
+          
+          <div class="col-sm-8 {{site.altitudeMsg ? 'has-error' : ''}}">
+            <input type="text" class="form-control" id="altitudeInput" placeholder="altitude in metres"
+              value="{{site.altitude}}">
+            <span class="validation-message">{{site.altitudeMsg}}</span>
+          </div>
+        </div>
+        
+        <!-- latitude -->
+        <div class="form-group">
+          <label for="latitudeInput" class="col-sm-4 control-label">Latitude</label>
+          
+          <div class="col-sm-8 {{site.latitudeMsg ? 'has-error' : ''}}">
+            <input type="text" class="form-control" id="Input" placeholder="latitude"
+              value="{{site.latitude}}">
+            <span class="validation-message">{{site.latitudeMsg}}</span>
+          </div>
+        </div>
+        
+        <!-- longitude -->
+        <div class="form-group">
+          <label for="longitudeInput" class="col-sm-4 control-label">Longitude</label>
+          
+          <div class="col-sm-8 {{site.longitudeMsg ? 'has-error' : ''}}">
+            <input type="text" class="form-control" id="Input" placeholder="longitude"
+              value="{{site.longitude}}">
+            <span class="validation-message">{{site.longitudeMsg}}</span>
+          </div>
+        </div>
+        
+        
+        
+        <div class="button-bar">
+          <button class="btn btn-primary" on-click="editSite.save:{{site.siteId}}">Save</button>
+          <button class="btn btn-warning" on-click="deleteSite.show">Delete</button>
+          <a class="btn" href="#/sites">Back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="deleteSiteDialog" tabindex="-1" role="dialog"
+    aria-labelledby="deleteSiteDialogLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="deleteSiteDialogLabel">Confirm delete</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete the site <strong>{{site.siteName}}</strong>?  This
+        will delete all data associated with the site.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" on-click="deleteSite.save:{{site.siteId}}">Delete</button>
+        <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

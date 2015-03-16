@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Users</h3>
+    </div>
+    <div class="panel-body">
+      <div class="form-horizontal">
+        
+        <!-- username -->
+        <div class="form-group">
+          <label for="usernameInput" class="col-sm-4 control-label">Username</label>
+          
+          <div class="col-sm-8 {{user.usernameMsg ? 'has-error' : ''}}">
+            <input type="text" class="form-control" id="usernameInput" placeholder="username"
+              value="{{user.username}}">
+            <span class="validation-message">{{user.usernameMsg}}</span>
+          </div>
+        </div>
+        
+        <!-- role -->
+        <div class="form-group">
+          <label for="roleInput" class="col-sm-4 control-label">Role</label>
+          
+          <div class="col-sm-8 {{user.roleMsg ? 'has-error' : ''}}">
+            <input type="text" class="form-control" id="roleInput" placeholder="role"
+              value="{{user.role}}">
+            <span class="validation-message">{{user.roleMsg}}</span>
+          </div>
+        </div>
+        
+        <!-- relatedId -->
+        <div class="form-group">
+          <label for="relatedIdInput" class="col-sm-4 control-label">Related ID</label>
+          
+          <div class="col-sm-8 {{user.relatedIdMsg ? 'has-error' : ''}}">
+            <input type="text" class="form-control" id="relatedIdInput" placeholder="related ID"
+              value="{{user.relatedId}}">
+            <span class="validation-message">{{user.relatedIdMsg}}</span>
+          </div>
+        </div>
+        
+        
+        <div class="button-bar">
+          <button class="btn btn-primary" on-click="editUser.save:{{user.userId}}">Save</button>
+          <button class="btn btn-warning" on-click="deleteUser.show">Delete</button>
+          <a class="btn" href="#/users/{{user.userId}}/password">Change password</button>
+          <a class="btn" href="#/users">Back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="deleteUserDialog" tabindex="-1" role="dialog"
+    aria-labelledby="deleteUserDialogLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="deleteUserDialogLabel">Confirm delete</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete the user <strong>{{user.username}}</strong>?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" on-click="deleteUser.save:{{user.userId}}">Delete</button>
+        <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
