@@ -1,0 +1,95 @@
+
+<div class="container">
+  <div class="panel panel-default panel-big">
+    <div class="panel-heading">
+      <h3 class="panel-title">Graphs</h3>
+    </div>
+    <div class="panel-body">
+      {{#graph}}
+      <button class="btn btn-primary" on-click="goFullScreen">Go full screen</button>
+      
+      <div class="fullscreen-container">
+        <div id="graph"></div>
+      </div>
+      {{/graph}}
+      
+      <h2>Select data</h2>
+      
+      <p>Select the sensors to add to the chart.</p>
+      
+      <div class="container-fluid graph-selection">
+        <div class="row">
+          <div class="column col-md-4" id="chosenColumn">
+            <h3>Chosen sensors</h3>
+            
+            {{#sensors.length}}
+            <ul>
+              {{#sensors}}
+              <li>{{.description}}</li>
+              {{/sensors}}
+            </ul>
+            
+            <button class="btn btn-primary" on-click="showGraphs">Show graphs</button>
+            {{else}}
+            <p>No chosen sensors yet.</p>
+            {{/sensors.length}}
+          </div>
+
+          <div class="column col-md-2">
+            <h3>Site</h3>
+            <ul class="selectable">
+            {{#selection.sites}}
+              <li on-click="selectSite:{{.siteId}}"
+                  class="{{selection.site == .siteId ? 'selected' : ''}}">
+                {{.siteName}}
+              </li>
+            {{/selection.sites}}
+            </ul>
+          </div>
+
+          {{#selection.site != null}}
+          <div class="column col-md-2" id="houseColumn">
+            <h3>House</h3>
+            <ul class="selectable">
+            {{#selection.houses}}
+              <li on-click="selectHouse:{{.houseId}}"
+                  class="{{selection.house == .houseId ? 'selected' : ''}}">
+                {{.houseId}}
+              </li>
+            {{/selection.houses}}
+            </ul>
+          </div>
+          {{/selection.site}}
+
+          {{#selection.house != null}}
+          <div class="column col-md-2" id="hubColumn">
+            <h3>Hub</h3>
+            <ul class="selectable">
+            {{#selection.hubs}}
+              <li on-click="selectHub:{{.hubId}}"
+                  class="{{selection.hub == .hubId ? 'selected' : ''}}">
+                {{.hubId}}
+              </li>
+            {{/selection.hubs}}
+            </ul>
+          </div>
+          {{/selection.house}}
+
+          {{#selection.hub != null}}
+          <div class="column col-md-2" id="sensorColumn">
+            <h3>Sensor</h3>
+            <ul class="selectable">
+            {{#selection.sensors}}
+              <li on-click="selectSensor:{{.sensorId}}"
+                  class="{{selection.sensor == .sensorId ? 'selected' : ''}}">
+                {{.description}}
+              </li>
+            {{/selection.sensors}}
+            </ul>
+          </div>
+          {{/selection.hub}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

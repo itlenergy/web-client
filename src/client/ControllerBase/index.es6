@@ -16,8 +16,6 @@ export default class ControllerBase {
       .forEach((function (method) {
         this[method] = this.tryRequest.bind(this, method);
       }).bind(this));
-    
-    this.render('', {});
   }
   
   
@@ -68,8 +66,8 @@ export default class ControllerBase {
   }
   
   _runRequest(request, resolve, reject) {
-    if (this.ticket) 
-      request.url = request.url + '?sgauth=' + this.ticket;
+    if (ControllerBase.ticket) 
+      request.url = request.url + '?sgauth=' + ControllerBase.ticket;
     
     $.ajax(request)
       .done(function (data) {
@@ -100,10 +98,8 @@ export default class ControllerBase {
     function _tryRequest() {
       _this._runRequest(request, resolve, function (jqXHR) {
         if (jqXHR.status == 401 || jqXHR.status == 403) {
-          _this.ractive.set('loginDialog', {username: 'admin', password: 'admin'});
-          _this.on_loginDialog_submit().then(_tryRequest);
-//          _this.showDialog('loginDialog');
-//          _this.resumeRequest = _tryRequest;
+          _this.showDialog('loginDialog');
+          _this.resumeRequest = _tryRequest;
         } else {
           reject(jqXHR);
         }
@@ -136,7 +132,7 @@ export default class ControllerBase {
     
     try {
       let response = await this.request('post', '/auth/login', login);
-      this.ticket = response.ticket;
+      ControllerBase.ticket = response.ticket;
       this.hideDialog('loginDialog');
       
       if (this.resumeRequest) {
@@ -146,7 +142,7 @@ export default class ControllerBase {
     } catch (jqXHR) {
       
       if (jqXHR.status == 401 || jqXHR.status == 403) {
-        // show password error
+        this.ractive.set('loginDialog.error', 'wrong username or password');
       } else {
         this.showDialog('errorDialog');
       }

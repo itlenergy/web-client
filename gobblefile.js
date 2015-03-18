@@ -10,5 +10,7 @@ module.exports = gobble([
   
   gobble('node_modules/bootstrap/dist/css/bootstrap.min.css'),
   
-  gobble('src/client/app.css')
+  gobble('src/client/app.css'),
+  
+  gobble('src/logo.png')
 ]);

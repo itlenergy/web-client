@@ -8,6 +8,8 @@
     "bootstrap": "^3.3.2",
     "commander": "^2.7.1",
     "compression": "^1.4.2",
+    "cubism": "^1.6.0",
+    "d3": "^3.5.5",
     "director": "^1.2.8",
     "express": "git://github.com/stewartml/express",
     "font-awesome": "^4.3.0",

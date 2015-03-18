@@ -7,6 +7,7 @@ import winston from 'winston';
 import moment from 'moment';
 import path from 'path';
 import hogan from 'hogan-express';
+import Promise from 'bluebird';
 
 import {version} from '../../package.json';
 
@@ -55,8 +56,9 @@ export function getApp(config) {
   
   config.logger.info('Using API URL %s', config.apiUrl);
   
-  app.get('/app', function (request, response) {
-    response.render('app', {apiUrl: config.apiUrl, version: version});
+  app.get('/', async function (request, response) {
+    let landing = await Promise.promisify(fs.readFile)(path.resolve(__dirname, '../client/LandingController/landing.html'));
+    response.render('app', {apiUrl: config.apiUrl, version, landing});
   });
   
   return app;

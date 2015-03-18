@@ -1,0 +1,19 @@
+<div class="landing">
+  <img src="/logo.png" class="landing-logo">
+  
+  <div class="landing-login">
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="username" value="{{loginDialog.username}}">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="password" placeholder="password" value="{{loginDialog.password}}">
+    </div>
+    <button class="btn btn-primary" on-click="landingLogin">Sign in</button>
+    <div style="color: #d00">{{loginDialog.error}}</div>
+  </div>
+  
+  <div class="landing-attribution">
+    <a href="http://en.wikipedia.org/wiki/File:Barrow_Offshore_wind_turbines_NR.jpg">Photo by Andy Dingley</a>, licensed under the 
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution-Share Alike 3.0 Unported</a> licence.
+  </div>
+</div>

@@ -12,6 +12,7 @@
         <div class="form-group">
           <input class="form-control" type="password" placeholder="password" value="{{loginDialog.password}}">
         </div>
+        <div style="color: #d00">{{loginDialog.error}}</div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" on-click="loginDialog.submit">Login</button>
