@@ -1,6 +1,9 @@
 {
   "name": "itlenergy-web-client",
   "version": "0.1.0",
+  "scripts": {
+    "build": "grunt"
+  },
   "dependencies": {
     "babel": "^4.7.12",
     "babel-runtime": "^4.7.12",
@@ -57,10 +60,12 @@
     "babelify": "^5.0.4",
     "browserify": "^9.0.3",
     "browserify-shim": "^3.8.3",
-    "gobble": "^0.7.8",
-    "gobble-browserify": "^0.2.0",
     "grunt": "^0.4.5",
     "grunt-browserify": "^3.5.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-notify": "^0.4.1",
+    "load-grunt-tasks": "^3.1.0",
     "ractivate": "^0.2.0"
   }
 }
