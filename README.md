@@ -77,7 +77,7 @@ You can also run the application as a docker container.
 
 The docker container expects there to be a configuration file called `config.json` in the container's `/host` directory, and it outputs a log to `/host/node.log`.  Running the container then looks like this:
 
-    $ docker run -d --name itlenergy-web -v /path/to/config/dir:/host -p 3000:80 itlenergy/docker
+    $ docker run -d --name itlenergy-web -v /path/to/config/dir:/host -p 3000:80 itlenergy/web-client
     
 This will automatically download it from docker hub and run it for you.  I'll break the command down:
 
