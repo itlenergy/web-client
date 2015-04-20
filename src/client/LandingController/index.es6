@@ -11,7 +11,7 @@ export default class LandingController extends ControllerBase {
   }
   
   landing() {
-    this.render(require('./landing', {}));
+    this.render(require('./landing'), {});
   }
   
   async on_landingLogin() {

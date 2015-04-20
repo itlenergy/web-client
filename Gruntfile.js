@@ -9,7 +9,7 @@ var browserifyFiles = {
 var browserifyOptions = {
   extensions: ['.html', '.es6'],
   "transform": [
-    "browserify-shim",
+    "ractivate",
     [
       "babelify",
       {
@@ -18,10 +18,12 @@ var browserifyOptions = {
           "runtime"
         ],
         "experimental": true,
-        "ignore": /node_modules/
+        "ignore": /node_modules/,
+        "extensions": [
+          '.es6'
+        ]
       }
-    ],
-    "ractivate"
+    ]
   ]
 };
 
@@ -52,7 +54,7 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
-          {expand: true, flatten: true, src: ['node_modules/dist/css/bootstrap.min.css'],
+          {expand: true, flatten: true, src: ['node_modules/bootstrap/dist/css/bootstrap.min.css'],
             dest: 'static/'},
           {expand: true, flatten: true, src: ['src/client/app.css'], dest: 'static/'},
           {expand: true, flatten: true, src: ['src/logo.png'], dest: 'static/'}

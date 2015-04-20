@@ -58,6 +58,8 @@ export function getApp(config) {
   
   app.get('/', async function (request, response) {
     let landing = await Promise.promisify(fs.readFile)(path.resolve(__dirname, '../client/LandingController/landing.html'));
+    
+    landing = landing.toString().replace(/{{.*}}/g, '');
     response.render('app', {apiUrl: config.apiUrl, version, landing});
   });
   

@@ -26,26 +26,11 @@
     "winston": "^0.9.0"
   },
   "browser": {
-    "ractive": "./node_modules/ractive/ractive.min.js",
     "jquery": "./node_modules/jquery/dist/jquery.js"
   },
   "browserify": {
     "transform": [
-      "browserify-shim",
-      [
-        "babelify",
-        {
-          "loose": true,
-          "optional": [
-            "runtime"
-          ],
-          "experimental": true,
-          "extensions": [
-            ".es6"
-          ]
-        }
-      ],
-      "ractivate"
+      "browserify-shim"
     ]
   },
   "browserify-shim": {
