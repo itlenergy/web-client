@@ -61,7 +61,7 @@ export default class SiteController extends ControllerBase {
     let sensors = this.ractive.get('sensors');
     let context = cubism.context()
       .serverDelay(0)
-      .step(60000)
+      .step(300000)
       .size(1100);
     
     d3.select('#graph').call(function (div) {      
